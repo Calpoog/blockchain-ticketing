@@ -1,5 +1,5 @@
 {
-  "name": "drizzle-box",
+  "name": "blockchain-ticketing",
   "version": "1.0.0",
   "devDependencies": {
     "autoprefixer": "6.5.1",
@@ -16,9 +16,6 @@
     "deepmerge": "^2.1.1",
     "detect-port": "1.0.1",
     "dotenv": "2.0.0",
-    "drizzle": "trufflesuite/drizzle#pull/88/head",
-    "drizzle-react": "^1.1.1",
-    "drizzle-react-components": "^1.1.0",
     "eslint": "3.8.1",
     "eslint-config-react-app": "^0.5.0",
     "eslint-loader": "1.6.0",
