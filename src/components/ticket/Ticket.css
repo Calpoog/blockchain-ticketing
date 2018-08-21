@@ -1,0 +1,38 @@
+.tickets {
+    margin: 0 -10px;
+}
+    .ticket {
+        padding: 10px;
+    }
+        .ticket__wrap {
+            position: relative;
+            background-color: #f4f7f9;
+            border-radius: 4px;
+            padding: 40px 20px;
+            border: 2px solid #4e5158;
+        }
+            .ticket__wrap:before, .ticket__wrap:after {
+                content: '';
+                background-color: #fdfdfd;
+                width: 50px;
+                height: 25px;
+                position: absolute;
+                top: -2px;
+                left: 50%;
+                margin-left: -25px;
+                border: 2px solid #4e5158;
+                border-radius: 0 0 25px 25px;
+                border-width: 0 2px 2px 2px;
+            }
+
+            .ticket__wrap:after {
+                top: auto;
+                bottom: -2px;
+                border-radius: 25px 25px 0 0;
+                border-width: 2px 2px 0 2px;
+            }
+
+            .ticket h3 {
+                font-size: 18px;
+                font-weight: bold;
+            }

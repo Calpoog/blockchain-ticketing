@@ -1,0 +1,10 @@
+{
+    "globals": {
+        "assert": false,
+        "artifacts": false,
+        "contract": false,
+        "fail": false,
+        "before": false,
+        "web3": false
+    }
+}

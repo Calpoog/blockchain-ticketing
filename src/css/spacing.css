@@ -1,0 +1,47 @@
+.margin-sm { margin: 10px !important; }
+.margin-md { margin: 20px !important; }
+.margin-lg { margin: 40px !important; }
+
+.margin-bun-sm { margin: 10px 0 !important; }
+.margin-bun-md { margin: 20px 0 !important; }
+.margin-bun-lg { margin: 40px 0 !important; }
+
+.margin-sides-sm { margin: 0 10px !important; }
+.margin-sides-md { margin: 0 20px !important; }
+.margin-sides-lg { margin: 0 40px !important; }
+
+.margin-top-sm { margin-top: 10px !important; }
+.margin-top-md { margin-top: 20px !important; }
+.margin-top-lg { margin-top: 40px !important; }
+
+.margin-bottom-sm { margin-bottom: 10px !important; }
+.margin-bottom-md { margin-bottom: 20px !important; }
+.margin-bottom-lg { margin-bottom: 40px !important; }
+
+.margin-left-sm { margin-left: 10px !important; }
+.margin-left-md { margin-left: 20px !important; }
+.margin-left-lg { margin-left: 40px !important; }
+
+.padding-sm { padding: 10px !important; }
+.padding-md { padding: 20px !important; }
+.padding-lg { padding: 40px !important; }
+
+.padding-bun-sm { padding: 10px 0 !important; }
+.padding-bun-md { padding: 20px 0 !important; }
+.padding-bun-lg { padding: 40px 0 !important; }
+
+.padding-sides-sm { padding: 0 10px !important; }
+.padding-sides-md { padding: 0 20px !important; }
+.padding-sides-lg { padding: 0 40px !important; }
+
+.padding-top-sm { padding-top: 10px !important; }
+.padding-top-md { padding-top: 20px !important; }
+.padding-top-lg { padding-top: 40px !important; }
+
+.padding-bottom-sm { padding-bottom: 10px !important; }
+.padding-bottom-md { padding-bottom: 20px !important; }
+.padding-bottom-lg { padding-bottom: 40px !important; }
+
+.padding-left-sm { padding-left: 10px !important; }
+.padding-left-md { padding-left: 20px !important; }
+.padding-left-lg { padding-left: 40px !important; }

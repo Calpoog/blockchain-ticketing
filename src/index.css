@@ -1,0 +1,242 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+  line-height: 1;
+  background-color: #fdfdfd;
+  padding-bottom: 40px;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body, input, textarea, button {
+  font-family: 'Open Sans';
+}
+
+.container {
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+button {
+  background-color: transparent;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  border: 2px solid #0088e2;
+  border-radius: 30px;
+  color: #0088e2;
+}
+
+button.green {
+  border-color: #4caf50;
+  color: #4caf50;
+}
+
+button[disabled] {
+  opacity: 0.3;
+}
+
+input, textarea {
+  border: 2px solid #b2c7d8;
+  border-radius: 4px;
+}
+
+input, textarea, button {
+  font-size: 14px;
+}
+
+input {
+  height: 40px;
+  padding: 0 10px;
+  font-family: monospace;
+} 
+
+.full {
+  width: 100%;
+}
+
+.fill {
+  flex: 1;
+}
+
+header {
+  height: 60px;
+  background-color: #0088e2;
+  color: #fff;
+}
+  header .container {
+    height: 100%;
+    display: flex;
+    align-self: center;
+  }
+    .address {
+      justify-self: flex-start;
+      display: flex;
+      align-items: center;
+      margin-right: auto;
+    }
+    header a {
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      height: 100%;
+      text-decoration: none;
+      color: #bed6eb;
+    }
+    header a:hover {
+      color: #fff;
+    }
+    header a.is-active {
+      background-color: #0065a8;
+      color: #fff;
+    }
+
+.title {
+  font-size: 20px;
+  color: #0088e2;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.bg-light {
+  background-color: #ecf4fa;
+}
+
+.text-light {
+  color: #738797;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-mono {
+  font-family: monospace;
+}
+
+.text-sm {
+  font-size: 12px;
+}
+
+.text-lg {
+  font-size: 18px;
+}
+
+.event-result {
+  display: flex;
+}
+  .event-result img {
+    max-width: 300px;
+    max-height: 300px;
+  }
+  .event-result button {
+    min-width: 100px;
+  }
+  .event-result__content {
+    flex: 1;
+  }
+
+.overlay {
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+  .popup {
+    position: relative;
+    background: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    max-width: 360px;
+    max-height: 100%;
+    overflow: auto;
+  }
+    .popup__close {
+      padding: 10px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+    .popup img {
+      width: 100%;
+    }
+
+.event-code {
+  line-height: 40px;
+  letter-spacing: 2px;
+}
+
+.hidden {
+  display: none;
+}
+
+.events {
+    margin: 0 -10px;
+}
+    .event {
+        padding: 10px;
+    }
+        .event__wrap {
+            position: relative;
+            background-color: #f4f7f9;
+            border-radius: 4px;
+            padding: 20px;
+            border: 2px solid #4e5158;
+        }
+            .event h3 {
+                font-size: 18px;
+                font-weight: bold;
+            }
