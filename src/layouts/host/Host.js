@@ -152,6 +152,7 @@ class Host extends Component {
                             return !event ? null : <div className="event pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4" key={i}>
                                 <div className="event__wrap">
                                     <h3 className="margin-bottom-md">{event.name}</h3>
+                                    <p className="margin-bottom-md">Event ID: <span className="text-mono">{event.id}</span></p>
                                     <p className="text-light margin-bottom-sm">{event.price} wei</p>
                                     <p className="margin-bottom-sm">{event.totalTickets} tickets</p>
                                     <p className="margin-bottom-md">{event.remainingTickets} remaining</p>
@@ -176,7 +177,7 @@ class Host extends Component {
                                 <button onClick={this.generateCode}>Generate Code</button>
                                 <div className="event-code pure-u fill text-lg padding-left-md">{this.state.code}</div>
                             </div>
-                            (this.state.redeemSuccess ? <div className="text-lg">Ticket redeemed!</div> : null}
+                            {this.state.redeemSuccess ? <div className="text-lg">Ticket redeemed!</div> : null}
                             {this.state.code ?
                                 <div>
                                     <p className="margin-bottom-sm text-sm">

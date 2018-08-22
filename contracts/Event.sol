@@ -59,7 +59,7 @@ contract Event is Ownable {
      * @param name string String name of event
      * @param price uint Price in wei of the Tickets
      * @param totalTickets Total number of tickets for this event
-     * @return id uint ID of the newly created event
+     * @return uint ID of the newly created event
      */
     function createEvent(string name, uint price, uint totalTickets) external returns (uint) {
         uint id = events.push(EventData(name, price, totalTickets, totalTickets, msg.sender)) - 1;
@@ -70,6 +70,7 @@ contract Event is Ownable {
     /**
      * @dev Buy a new ticket from event
      * @param eventId uint ID of the event to buy a ticket from
+     * @return uint ID of the newly minted ticket
      */
     function buyTicket(uint eventId) external payable returns (uint) {
         // Event must exist

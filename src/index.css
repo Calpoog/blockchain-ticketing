@@ -157,6 +157,7 @@ header {
 
 .text-mono {
   font-family: monospace;
+  font-size: 1.2em;
 }
 
 .text-sm {
