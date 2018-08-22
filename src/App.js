@@ -74,6 +74,9 @@ class App extends Component {
         const ticketContract = makeContract(web3, TicketArtifact, networkId);
         const eventContract = makeContract(web3, EventArtifact, networkId);
 
+        console.log(ticketContract);
+        console.log(eventContract);
+
         this.props.addContract('Ticket', ticketContract);
         this.props.addContract('Event', eventContract);
 
