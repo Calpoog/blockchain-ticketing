@@ -63,6 +63,56 @@ This should compile the front-end and open it in browser. If not, make note of t
 and open the http://localhost:port. If done correctly you should be viewing the web page and the main address
 in Metamask should be displayed at the top of the web page in the blue header.
 
+### Using the web interface
+
+Make sure you are signed into Metamask. If not, sign in and then refresh the web page. You should see Metamask's primary
+account address displayed in the web page header.
+
+By default you view the "Participant view." This is what those looking to buy tickets and see their ticket
+collection would see. In order to buy a ticket, there first must be events in the system. Switch to the
+"Event Host view" by clicking "Host Event" in the header. Here you can create an event by filling out the form.
+Name your event, price the tickets (in wei), and determine how many total tickets will be sold. Click create and
+Metamask will pop up asking you to confirm the transaction. Confirm and you should see a new event appear in the
+"My Events" list. You can create as many events as you'd like. Each event will be assigned a numeric ID. This is important
+for buying tickets. An event host would share their event's ID via some kind of marketing.
+
+To buy a ticket from an event you've created, switch back to the Participant view by clicking "Participate" in the header.
+Under "Find Events" type in the ID of one of the events you created (They start with ID 0 and increment) and click find. A section should appear showing the details of the event: Event name, ticket price (in wei), total tickets, and tickets remaining. There is also a picture of a kitten for future expansion to IPFS.
+
+Next, purchase a ticket from a found event using the "Buy" button. This will prompt a Metamask popup and once you confirm a new ticket should appear under "My Tickets."
+
+Suppose you purchased a ticket to the State Fair. Now that you have a ticket from an event on the blockchain, the next step
+is to redeem that ticket at the event. You would go to the State Fair, and like most events, there would be people scanning
+tickets at the entrance. In this case you don't have a physical ticket, but instead a blockchain ticket and by the nature
+of blockchain, you have to prove that you have ownership of that ticket (since anyone can see public data on the blockchain
+anyone can see the details of every event and ticket). In order to provide proof that undoubtedly shows ownership, it must
+be done at the time of redemption. The person scanning the ticket will provide a one-time code that you can then use
+to create a special cryptographic signature of that code that the event host can use to validate that you are the owner of
+the ticket. Once the event host validates you own the ticket, they can redeem the ticket on the blockchain and let you enter.
+
+For demo purposes, you will be functioning as both the Event Host and Participant. Open a new Chrome tab and go to the
+same URL and make sure you are in the "Host Event" section. Click the "Redeem Tickets" button for the event you wish
+to redeem tickets for. This will display a popup with a button to generate a one-time code. Click this button and a 4
+number/letter code will appear. More fields will appear, but for now just copy the one time code.
+
+Move back to your Chrome tab with the Participant view open. Click "Prove Ownership" on a ticket you bought from the above
+event. A popup will appear where you can enter the code from the event host. Paste in the code and click "Generate Proof."
+You will receive a Metamask prompt to sign a message. This message is a combination of the ID of the ticket and the code
+you entered. This generates a QR code. Normally, the event host would scan your QR code but for demo purposes this is
+difficult when using the same computer for both host and participant and no mobile phones. I have provided a text box
+below it with the data that is encoded in the QR code. Copy this data (it is long).
+
+Back in your Host Event tab, paste the data you just copied into the "QR Ticket Data" field in the popup you left open.
+Click "Check Validity." If the ticket is valid and the participant's QR ticket data proved their ownership it will display
+"Ticket valid!" Try changing the number before the comma or the signature data after the comma and clicking "Check Validity"
+to see what would happen if the data was invalid. Once it reads "Ticket valid!" you can click "Redeem" to redeem the
+ticket. Metmask will again prompt for a transaction and once confirmed the popup will read "Ticket redeemed." You can
+continue to click "Generate Code" to make new codes to validate other tickets for this event.
+
+That's it! You've successfully been both a blockchain Event Host and Participant with public, immutable, non-fungible tickets.
+This eliminates fake tickets and can be used to eliminate middle-men for ticket purchasing and reselling. Rules could
+also be assigned to the selling of tickets to limit resale or the value of resale.
+
 
 ## Running the tests
 
