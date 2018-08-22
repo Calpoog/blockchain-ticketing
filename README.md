@@ -279,6 +279,7 @@ All contract functions are commented using the spec documentation with descripti
 Contracts deployed on the Rinkeby test network
 
 Ticket.sol - 0x9d25f512ceedd161164f538fa4ddfc716f7c6def
+
 Event.sol - 0xdad344793a6b9e2b8e918d734f177b848e7fae04
 
 There is one event created (event ID 0) and two tickets has been bought from it.
