@@ -78,10 +78,16 @@ Metamask will pop up asking you to confirm the transaction. Confirm and you shou
 "My Events" list. You can create as many events as you'd like. Each event will be assigned a numeric ID. This is important
 for buying tickets. An event host would share their event's ID via some kind of marketing.
 
+![alt text](https://github.com/Calpoog/blockchain-ticketing/raw/master/readme-images/2.png)
+
 To buy a ticket from an event you've created, switch back to the Participant view by clicking "Participate" in the header.
 Under "Find Events" type in the ID of one of the events you created (They start with ID 0 and increment) and click find. A section should appear showing the details of the event: Event name, ticket price (in wei), total tickets, and tickets remaining. There is also a picture of a kitten for future expansion to IPFS.
 
+![alt text](https://github.com/Calpoog/blockchain-ticketing/raw/master/readme-images/3.png)
+
 Next, purchase a ticket from a found event using the "Buy" button. This will prompt a Metamask popup and once you confirm a new ticket should appear under "My Tickets."
+
+![alt text](https://github.com/Calpoog/blockchain-ticketing/raw/master/readme-images/4.png)
 
 Suppose you purchased a ticket to the State Fair. Now that you have a ticket from an event on the blockchain, the next step
 is to redeem that ticket at the event. You would go to the State Fair, and like most events, there would be people scanning
@@ -97,6 +103,9 @@ same URL and make sure you are in the "Host Event" section. Click the "Redeem Ti
 to redeem tickets for. This will display a popup with a button to generate a one-time code. Click this button and a 4
 number/letter code will appear. More fields will appear, but for now just copy the one time code.
 
+<img src="https://github.com/Calpoog/blockchain-ticketing/raw/master/readme-images/5.png" width="400" />
+<img src="https://github.com/Calpoog/blockchain-ticketing/raw/master/readme-images/6.png" width="400" />
+
 Move back to your Chrome tab with the Participant view open. Click "Prove Ownership" on a ticket you bought from the above
 event. A popup will appear where you can enter the code from the event host. Paste in the code and click "Generate Proof."
 You will receive a Metamask prompt to sign a message. This message is a combination of the ID of the ticket and the code
@@ -104,12 +113,17 @@ you entered. This generates a QR code. Normally, the event host would scan your 
 difficult when using the same computer for both host and participant and no mobile phones. I have provided a text box
 below it with the data that is encoded in the QR code. Copy this data (it is long).
 
+<img src="https://github.com/Calpoog/blockchain-ticketing/raw/master/readme-images/7.png" width="400" />
+<img src="https://github.com/Calpoog/blockchain-ticketing/raw/master/readme-images/8.png" width="400" />
+
 Back in your Host Event tab, paste the data you just copied into the "QR Ticket Data" field in the popup you left open.
 Click "Check Validity." If the ticket is valid and the participant's QR ticket data proved their ownership it will display
 "Ticket valid!" Try changing the number before the comma or the signature data after the comma and clicking "Check Validity"
 to see what would happen if the data was invalid. Once it reads "Ticket valid!" you can click "Redeem" to redeem the
 ticket. Metmask will again prompt for a transaction and once confirmed the popup will read "Ticket redeemed." You can
 continue to click "Generate Code" to make new codes to validate other tickets for this event.
+
+<img src="https://github.com/Calpoog/blockchain-ticketing/raw/master/readme-images/9.png" width="400" />
 
 That's it! You've successfully been both a blockchain Event Host and Participant with public, immutable, non-fungible tickets.
 This eliminates fake tickets and can be used to eliminate middle-men for ticket purchasing and reselling. Rules could
