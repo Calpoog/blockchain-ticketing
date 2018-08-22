@@ -273,3 +273,14 @@ the functions I've extended.
 All contract functions are commented using the spec documentation with descriptions, params and returns.
 
 ## Stretch goals
+
+### Testnet Deployment
+
+Contracts deployed on the Rinkeby test network
+
+Ticket.sol - 0x9d25f512ceedd161164f538fa4ddfc716f7c6def
+
+Event.sol - 0xdad344793a6b9e2b8e918d734f177b848e7fae04
+
+There is one event created (event ID 0) and two tickets has been bought from it.
+The first ticket (ticket ID 0) has been redeemed.
