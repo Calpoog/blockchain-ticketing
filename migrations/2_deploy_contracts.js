@@ -1,10 +1,7 @@
 var Ticket = artifacts.require("Ticket");
 var Event = artifacts.require("Event");
-var SimpleStorage = artifacts.require("SimpleStorage");
 
 module.exports = function(deployer) {
-  deployer.deploy(SimpleStorage);
-  
   deployer.deploy(Ticket, 0).then(() => {
     return deployer.deploy(Event, Ticket.address)
       .then(async () => {
