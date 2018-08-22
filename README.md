@@ -68,6 +68,8 @@ in Metamask should be displayed at the top of the web page in the blue header.
 Make sure you are signed into Metamask. If not, sign in and then refresh the web page. You should see Metamask's primary
 account address displayed in the web page header.
 
+![alt text](https://github.com/Calpoog/blockchain-ticketing/raw/master/readme-images/1.png)
+
 By default you view the "Participant view." This is what those looking to buy tickets and see their ticket
 collection would see. In order to buy a ticket, there first must be events in the system. Switch to the
 "Event Host view" by clicking "Host Event" in the header. Here you can create an event by filling out the form.
