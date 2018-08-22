@@ -145,3 +145,114 @@ Finally, the tests can be run with the test command. There should be 19 passing 
 ```
 test
 ```
+
+# Grading rubric requirements
+
+Here I outline how this project meets each of the requirements in the grading rubric. Hopefully this makes it
+easier for you to identify things without spending too much time!
+
+## User interface requirements
+
+### Run app on a dev server locally for testing/grading
+If you've followed the above instructions, this is complete. The contracts run in the ganache-cli blockchain and
+the front end runs in the browser when starting with npm.
+
+### Should be able to visit URL and interact with the app
+If setup properly, the app should be running on a localhost URL.
+
+### The applications should have the following features
+Display the current account - This is displayed in the blue header of the web app
+Sign transactions using metamask / uPort - Transactions to create an event, buy a ticket, and redeem tickets are all signed using Metamask.
+Reflect updates to to the contract state - New events appear in the UI after creating a new event on the blockchain. Same for tickets after buying from an event.
+
+## Testing
+
+### 5 tests with with explanations
+
+Each contract (Ticket and Event) has more than 5 tests. The test descriptions are sort of implicit with the test
+it('description'), but I'll expand upon the tests here.
+
+For both contracts I test that they have correct addresses set for one another. They need references to the other in order
+for the Event contract to mint (buy) new tickets, and for the Ticket contract to verify that mint and redeem requests
+only come from the Event contract.
+
+The event contract tests are fairly simple. I needed to test for all the edge cases of creating, buying and redeeming tickets.
+There is no wrong way to create an event, so validating that new events are added is enough. For buying, edge cases like
+trying to buy a ticket to a non-existent event and making sure you can only by tickets with the appropriate amount of ETH
+were tested. Lastly it tests that a ticket can be redeemed (which is only valid from the event contract) and that the
+redeemed status of a redeemed ticket works properly.
+
+The ticket contract inherits ERC721 EthPM/npm package from openzeppelin. By virtue of this, I did not need to test any of
+the ERC721 features, only those that I layered on top of it. Thus, I test that only the Event contract can call the protected
+method to mint (buy) and redeem tickets. It also tests that tickets can be validated and redeemed and the failure cases
+for those.
+
+### Tests are properly structured
+
+All tests follow standard format. They set up context, execute the testable code, then verify that the code worked
+(or reverted) properly according to the test description.
+
+### Tests provide adequate coverage for the contracts
+
+The tests cover all functions and their error cases.
+
+### All tests pass
+
+This should be shown while following the testing procedure.
+
+## Design pattern requirements
+
+### Implement a circuit breaker / emergency stop
+
+The Ticket contract's write functions are protected by only coming from the Event contract. Read functions would still be
+fine in the event of an emergency that needs to stop the code.
+
+The Event contract implements an emergency stop from the owner. This prevents all writeable functions from running,
+effectively making only reading event/ticket data possible in the case of an emergency, which prevents any further damage.
+
+### Other design patterns used
+
+In addition to circuit breaker, this project uses the following design patterns:
+
+Ownership - Each contract is Ownable and has an owner that allows certain features like the emergency stop or updating the address that each points to the other
+
+Restricting Access - The Ticket contract restricts access to some functions to calls from the Event contract. Both contracts
+restrict access to multiple functions based on event owner.
+
+Fail Early and Fail Loud - For error conditions in both contracts, require() statements are used to enforce proper calling. This causes reverts before state data can be altered.
+
+## Security Tools / Common Attacks
+
+### Explain what measures they’ve taken to ensure that their contracts are not susceptible to common attacks
+
+I've evaded most common attack channels by avoiding their main causes: storing ETH, performing math, and calling external
+contracts. These can lead to problems like unexpected reverts when refunding, exploits around the withdrawal pattern,
+under/overflow, and reentrancy.
+
+The only try math my contracts do is subtracting 1 from tickets an event has when buying. This avoids underflow because
+the number is hardcoded (the user can't specify anything that could cause problems) and happens after the check that
+tickets are greater than 0.
+
+I validate on buy that the amount of ETH sent is exactly the amount necessary to buy the ticket. This means a user can't
+buy a ticket for cheaper than it costs, but more importantly means I do not have to send extra ETH bath to the owner which
+can cause DoS if it was a contract with a reverting fallback function.
+
+No recursion or heavy computing is done to avoid stack depth issues and running out of gas.
+
+## Library / EthPM
+
+### At least one contract uses a library or EthPM package
+
+The Ticket contract uses openzeppelin-solidity EthPM/npm package (I used npm, CourseQuestions confirmed this is okay, in order
+to make installation easier. Only an npm install is required instead of also a truffle install).
+
+The Ticket contract by inheriting from ERC721 also uses the SafeMath library. The math functions provided are used in one of
+the functions I've extended.
+
+## Additional Requirements
+
+### Smart Contract code should be commented according to the specs in the documentation
+
+All contract functions are commented using the spec documentation with descriptions, params and returns.
+
+## Stretch goals
