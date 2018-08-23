@@ -256,6 +256,9 @@ restrict access to multiple functions based on event owner.
 
 Fail Early and Fail Loud - For error conditions in both contracts, require() statements are used to enforce proper calling. This causes reverts before state data can be altered.
 
+As for why other design patterns were not used - they simply were not needed. Things such as withdrawal patterns and
+contract factories were not necessary to work with the ticketing/event system.
+
 ## Security Tools / Common Attacks
 
 ### Explain what measures they’ve taken to ensure that their contracts are not susceptible to common attacks
