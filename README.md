@@ -49,10 +49,10 @@ ganache-cli
 ```
 
 Copy the mnemonic shown in the console. This lets you recall the default account for the ganache blockchain.
-Open the Metamask plugin in your browser and use the dropdown at the top to select "Localhost 8545." At the bottom,
-click "Import using account seed phrase." This could open a new window where you have to select "import using seed phrase"
-again. Once you get to the textarea for pasting the seed phrase, paste the mnemonic you copied from the console and
-choose a password to use for the next time logging into Metamask.
+Open the Metamask plugin in your browser and use the dropdown at the top to change the network to "Localhost 8545."
+At the bottom, click "Import using account seed phrase." This could open a new window where you have to select
+"import using seed phrase" again. Once you get to the textarea for pasting the seed phrase, paste the mnemonic you
+copied from the console and choose a password to use for the next time logging into Metamask.
 
 Run the web front-end
 
