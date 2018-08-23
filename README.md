@@ -9,7 +9,7 @@ the ticket and allow the participant to enter the event.
 
 *I have provided an entire section detailing how this project meets each grading rubric requirement to make
 it easy on those grading the project. Please scroll all the way down to find this. If you run into a problem
-while grading please reach out to be via email (calpoog@gmail.com) or in the Ryver course chat (@Calpoog)*
+while grading please reach out to me via email (calpoog@gmail.com) or in the Ryver course chat (@Calpoog)*
 
 ## Getting Started
 
@@ -49,10 +49,28 @@ ganache-cli
 ```
 
 Copy the mnemonic shown in the console. This lets you recall the default account for the ganache blockchain.
-Open the Metamask plugin in your browser and use the dropdown at the top to select "Localhost 8545." At the bottom,
-click "Import using account seed phrase." This could open a new window where you have to select "import using seed phrase"
-again. Once you get to the textarea for pasting the seed phrase, paste the mnemonic you copied from the console and
-choose a password to use for the next time logging into Metamask.
+Open the Metamask plugin in your browser and use the dropdown at the top to change the network to "Localhost 8545."
+At the bottom, click "Import using account seed phrase." This could open a new window where you have to select
+"import using seed phrase" again. Once you get to the textarea for pasting the seed phrase, paste the mnemonic you
+copied from the console and choose a password to use for the next time logging into Metamask.
+
+In another console, run the truffle console to start interacting with the ganache blockchain instance
+
+```
+truffle console
+```
+
+Once in the truffle console, run the compilation of the solidity contracts with
+
+```
+compile
+```
+
+Once this completes, run the migration to move the compiled contracts to the ganache blockchain instance
+
+```
+migrate
+```
 
 Run the web front-end
 
@@ -238,6 +256,9 @@ restrict access to multiple functions based on event owner.
 
 Fail Early and Fail Loud - For error conditions in both contracts, require() statements are used to enforce proper calling. This causes reverts before state data can be altered.
 
+As for why other design patterns were not used - they simply were not needed. Things such as withdrawal patterns and
+contract factories were not necessary to work with the ticketing/event system.
+
 ## Security Tools / Common Attacks
 
 ### Explain what measures they’ve taken to ensure that their contracts are not susceptible to common attacks
@@ -278,9 +299,9 @@ All contract functions are commented using the spec documentation with descripti
 
 Contracts deployed on the Rinkeby test network
 
-Ticket.sol - 0x9d25f512ceedd161164f538fa4ddfc716f7c6def
+Ticket.sol - 0x10519000e27921ef9f3e2c8dbdcae2f46d3bb79f
 
-Event.sol - 0xdad344793a6b9e2b8e918d734f177b848e7fae04
+Event.sol - 0x21ec59e832674cb11b46ab5a9ab4b2e161db9cd7
 
-There is one event created (event ID 0) and two tickets has been bought from it.
+There is one event created (event ID 0) and two tickets have been bought from it.
 The first ticket (ticket ID 0) has been redeemed.
