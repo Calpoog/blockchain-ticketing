@@ -9,7 +9,7 @@ the ticket and allow the participant to enter the event.
 
 *I have provided an entire section detailing how this project meets each grading rubric requirement to make
 it easy on those grading the project. Please scroll all the way down to find this. If you run into a problem
-while grading please reach out to be via email (calpoog@gmail.com) or in the Ryver course chat (@Calpoog)*
+while grading please reach out to me via email (calpoog@gmail.com) or in the Ryver course chat (@Calpoog)*
 
 ## Getting Started
 
@@ -282,5 +282,5 @@ Ticket.sol - 0x9d25f512ceedd161164f538fa4ddfc716f7c6def
 
 Event.sol - 0xdad344793a6b9e2b8e918d734f177b848e7fae04
 
-There is one event created (event ID 0) and two tickets has been bought from it.
+There is one event created (event ID 0) and two tickets have been bought from it.
 The first ticket (ticket ID 0) has been redeemed.
