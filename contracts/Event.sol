@@ -7,6 +7,9 @@ import "./Ticket.sol";
  * @title Event contract for creating/managing events
  */
 contract Event is Ownable {
+
+    // For emergency stop
+    bool private stopped = false;
     
     // Address of the Ticket contract
     address public ticketAddress;
@@ -41,9 +44,24 @@ contract Event is Ownable {
      * @dev Called each time a ticket is redeemed
      */
     event RedeemedTicket(uint indexed ticketId);
+
+    // Modifiers for emergency stops
+    modifier stopInEmergency() {
+        require(!stopped, "Contract is in emergency stop");
+        _;
+    }
+    // There are no methods that can run during an emergency
     
     constructor(address _ticketAddress) public {
         ticketAddress = _ticketAddress;
+    }
+
+    /**
+     * @dev Emergency stop to prevent creation of new events and buying tickets
+     */
+    function toggleEmergencyStop() public onlyOwner {
+        // You can add an additional modifier that restricts stopping a contract to be based on another action, such as a vote of users
+        stopped = !stopped;
     }
     
     /**
@@ -61,7 +79,7 @@ contract Event is Ownable {
      * @param totalTickets Total number of tickets for this event
      * @return uint ID of the newly created event
      */
-    function createEvent(string name, uint price, uint totalTickets) external returns (uint) {
+    function createEvent(string name, uint price, uint totalTickets) external stopInEmergency returns (uint) {
         uint id = events.push(EventData(name, price, totalTickets, totalTickets, msg.sender)) - 1;
         emit EventCreated(id, msg.sender);
         return id;
@@ -72,7 +90,7 @@ contract Event is Ownable {
      * @param eventId uint ID of the event to buy a ticket from
      * @return uint ID of the newly minted ticket
      */
-    function buyTicket(uint eventId) external payable returns (uint) {
+    function buyTicket(uint eventId) external stopInEmergency payable returns (uint) {
         // Event must exist
         require(events[eventId].owner != 0, "Even does not exist");
 
@@ -102,7 +120,7 @@ contract Event is Ownable {
     * @param ticketId uint ID of the ticket to redeem
     * @param eventId uint ID of the event the ticket belongs to
     */
-    function redeemTicket(uint ticketId, uint eventId) external {
+    function redeemTicket(uint ticketId, uint eventId) external stopInEmergency {
         // The event must exist
         address owner = events[eventId].owner;
         require(owner > 0, "The event does not exist");

@@ -67,7 +67,7 @@ contract('Event', function (accounts) {
         assert.equal(await eventInstance.createEvent.call('Event 1', 2000, 20), 1);
     });
 
-    // this test also proves that Event contract is successfull in calling 'buy' on Ticket
+    // this test also proves that Event contract is successful in calling 'buy' on Ticket
     it('can buy a ticket', async function () {
         // check that it properly returns a ticket ID
         const ticketId = await eventInstance.buyTicket.call(0, { value: 2000 });
@@ -140,6 +140,39 @@ contract('Event', function (accounts) {
         const result = await ticketInstance.isRedeemable.call(0, 0, ...proveTicketOwnership(0, 1234, accounts[0]));
 
         assert.equal(result, 1);
+    });
+
+    it('can\'t be stopped in an emergency by a non-owner', async function () {
+        try {
+            await eventInstance.toggleEmergencyStop({ from: accounts[1] });
+
+            assert(false, "Emergency stop should not be able to call from non-owner");
+        } catch (e) { }
+    });
+
+    it('can be stopped in an emergency by the owner', async function() {
+        try {
+            await eventInstance.toggleEmergencyStop();
+        } catch(e) {
+            assert(false, "Emergency stop should be allowed from owner");
+        }
+    });
+
+    it('does not allow protected methods during an emergency stop', async function() {
+        try {
+            await eventInstance.createEvent('Test Event', 2000, 20);
+            assert(false, "createEvent not allowed during emergency stop");
+        } catch(e) {}
+        try {
+            await eventInstance.buyTicket(0, { value: 2000 });
+            assert(false, "buyTicket not allowed during emergency stop");
+        } catch(e) {}
+        try {
+            await eventInstance.redeemTicket(0, 0);
+            assert(false, "redeemTicket not allowed during emergency stop");
+        } catch(e) {}
+
+        assert(true);
     });
 
 });
