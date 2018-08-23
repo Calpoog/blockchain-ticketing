@@ -299,9 +299,9 @@ All contract functions are commented using the spec documentation with descripti
 
 Contracts deployed on the Rinkeby test network
 
-Ticket.sol - 0x9d25f512ceedd161164f538fa4ddfc716f7c6def
+Ticket.sol - 0x10519000e27921ef9f3e2c8dbdcae2f46d3bb79f
 
-Event.sol - 0xdad344793a6b9e2b8e918d734f177b848e7fae04
+Event.sol - 0x21ec59e832674cb11b46ab5a9ab4b2e161db9cd7
 
 There is one event created (event ID 0) and two tickets have been bought from it.
 The first ticket (ticket ID 0) has been redeemed.
