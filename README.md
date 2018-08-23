@@ -54,6 +54,24 @@ At the bottom, click "Import using account seed phrase." This could open a new w
 "import using seed phrase" again. Once you get to the textarea for pasting the seed phrase, paste the mnemonic you
 copied from the console and choose a password to use for the next time logging into Metamask.
 
+In another console, run the truffle console to start interacting with the ganache blockchain instance
+
+```
+truffle console
+```
+
+Once in the truffle console, run the compilation of the solidity contracts with
+
+```
+compile
+```
+
+Once this completes, run the migration to move the compiled contracts to the ganache blockchain instance
+
+```
+migrate
+```
+
 Run the web front-end
 
 ```
