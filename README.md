@@ -275,11 +275,11 @@ I validate on buy that the amount of ETH sent is exactly the amount necessary to
 buy a ticket for cheaper than it costs, but more importantly means I do not have to send extra ETH back to the owner which
 can cause DoS if it was a contract with a reverting fallback function.
 
-Poison data was not too much of a consideration, but if expanded upon I would check for input sanitation no both front
+Poison data was not too much of a consideration, but if expanded upon I would check for input sanitation on both front
 and back-end. For now, it is possible to put in negative numbers for both price and tickets, resulting in unreasonably
 large unsigned integers stored in the contract. All this does is prevent any user from being able to buy a ticket from
-an event created this way. Form validation within the front end and some solidity-side sanity checks could remove this
-edge-case.
+an event created this way. Putting in non-numeric values for price and tickets leads to front end errors. Form validation 
+within the front end and some solidity-side sanity checks could remove these edge-cases.
 
 No recursion or heavy computing is done to avoid stack depth issues and running out of gas.
 
